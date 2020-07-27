@@ -16,4 +16,26 @@ public class YksikVaartusedTeenus {
     public List<YksikVaartused> saaYksikVaartused() {
         return yksikVaartusedRepo.findAll();
     }
+
+    public YksikVaartused muudaYksikVaartused(YksikVaartused yksikVaartused) {
+        List<YksikVaartused> yksikVaartusedList = yksikVaartusedRepo.findAll();
+        YksikVaartused eksisteerivYksikVaartused = yksikVaartusedList.get(0);
+        eksisteerivYksikVaartused.setPiirKriitiline(yksikVaartused.getPiirKriitiline());
+        eksisteerivYksikVaartused.setPiirLeebe(yksikVaartused.getPiirLeebe());
+        return yksikVaartusedRepo.save(eksisteerivYksikVaartused);
+    }
+
+    public YksikVaartused muudaVanusePiiri(int uusPiir) {
+        List<YksikVaartused> yksikVaartusedList = yksikVaartusedRepo.findAll();
+        YksikVaartused eksisteerivYksikVaartused = yksikVaartusedList.get(0);
+        eksisteerivYksikVaartused.setPiirVanus(uusPiir);
+        return yksikVaartusedRepo.save(eksisteerivYksikVaartused);
+    }
+
+    public YksikVaartused muudaPiirVanus(int uusPiirVanus) {
+        List<YksikVaartused> yksikVaartusedList = yksikVaartusedRepo.findAll();
+        YksikVaartused eksisteerivYksikVaartused = yksikVaartusedList.get(0);
+        eksisteerivYksikVaartused.setPiirVanus(uusPiirVanus);
+        return yksikVaartusedRepo.save(eksisteerivYksikVaartused);
+    }
 }

@@ -1,15 +1,15 @@
 package ee.reneroost.fonumAssistentBackend.olem;
 
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.util.Arrays;
-import java.util.List;
+import java.util.Date;
 
 @Entity
-@Table(name = "varuosa")
+@Table(name = "tehtud_too_logi")
 @Data
-public class Varuosa {
+public class TehtudTooLogi {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,14 +17,10 @@ public class Varuosa {
 
     private String tootja;
     private String mudel;
-    private String valjatulekuAeg;
-    private int hinnaMuutusteHulk;
     private String varuosaLiik;
     private String varuosaLiikTeenus;
-    private float artikliHind;
+    private double artikliHind;
     private int teenuseHind;
     private int kogus;
-    private int kogusKristiineKeskuses;
-    private int kogusViruKeskuses;
-    private int kogusLounaKeskuses;
+    private String tehtudTooKpKell;
 }

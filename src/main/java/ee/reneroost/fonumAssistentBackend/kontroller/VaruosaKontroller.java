@@ -24,6 +24,11 @@ public class VaruosaKontroller {
         return varuosaTeenus.saaVaruosaIdPohjal(id);
     }
 
+    @GetMapping("varuosadEsindusePohjal/{esinduseId}")
+    public List<Varuosa> saaVaruosadEsindusePohjal(@PathVariable int esinduseId) {
+        return varuosaTeenus.saaVaruosadEsindusePohjal(esinduseId);
+    }
+
     @PostMapping("/lisaVaruosa")
     public Varuosa lisaVaruosa(@RequestBody Varuosa varuosa) {
         return varuosaTeenus.lisaVaruosa(varuosa);
@@ -41,23 +46,22 @@ public class VaruosaKontroller {
 
     @DeleteMapping("/kustutaVaruosa/{id}")
     public String kustutaVaruosa(@PathVariable Integer id) {
-        System.out.println("Antud id: " + id);
         return varuosaTeenus.kustutaVaruosa(id);
     }
 
-    @GetMapping("/saaKoikOtsakorralVaruosad")
-    public List<Varuosa> saaKoikOtsakorralVaruosad() {
-        return varuosaTeenus.saaKoikOtsakorralVaruosad();
+    @GetMapping("/saaOtsakorralVaruosad/{miinimum}/{maksimum}")
+    public List<Varuosa> saaOtsakorralVaruosad(@PathVariable int miinimum, @PathVariable int maksimum) {
+        return varuosaTeenus.saaOtsakorralVaruosad(miinimum, maksimum);
     }
 
-    @GetMapping("/saaLeebeltOtsakorralVaruosad")
-    public List<Varuosa> saaLeebeltOtsakorralVaruosad() {
-        return varuosaTeenus.saaLeebeltOtsakorralVaruosad();
+    @GetMapping("/saaVanemadVaruosad/{vanusePiir}")
+    public List<Varuosa> saaVanemadVaruosad(@PathVariable int vanusePiir) {
+        return varuosaTeenus.saaVanemadVaruosad(vanusePiir);
     }
 
-    @GetMapping("/saaKriitiliseltOtsakorralVaruosad")
-    public List<Varuosa> saaKriitiliseltOtsakorralVaruosad() {
-        return varuosaTeenus.saaKriitiliseltOtsakorralVaruosad();
+    @GetMapping("/saaHinnaSoovitus/{varuosaId}")
+    public int saaHinnaSoovitus(@PathVariable Integer varuosaId) {
+        return varuosaTeenus.saaHinnaSoovitus(varuosaId);
     }
 
 }

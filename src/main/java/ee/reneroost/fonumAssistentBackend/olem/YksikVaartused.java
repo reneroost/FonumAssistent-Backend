@@ -2,9 +2,7 @@ package ee.reneroost.fonumAssistentBackend.olem;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "yksik_vaartused")
@@ -14,6 +12,7 @@ public class YksikVaartused {
     @Id
     private String id;
 
-    private int piirPehme;
+    private int piirLeebe;
     private int piirKriitiline;
+    private int piirVanus;
 }
